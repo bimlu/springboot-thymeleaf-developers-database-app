@@ -32,7 +32,8 @@
                         <td th:text="${developer.firstName + ' ' + developer.lastName}"></td>
                         <td>
 				    		<span th:each="skill,iterStat : ${developer.skills}">
-				    			<span th:text="${skill.label}"/><th:block th:if="${!iterStat.last}">,</th:block>
+				    			<span th:text="${skill.label}"/>
+                                <th:block th:if="${!iterStat.last}">,</th:block>
 				    		</span>
                         </td>
                         <td>
