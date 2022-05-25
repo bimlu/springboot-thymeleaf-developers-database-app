@@ -1,6 +1,8 @@
 package com.example.developersdatabase;
 
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -36,15 +38,15 @@ public class Application implements CommandLineRunner {
 
         List<Developer> developers = new LinkedList<Developer>();
         developers.add(new Developer("John", "Smith", "john.smith@example.com",
-                Arrays.asList(javascript, ruby)));
+                Arrays.asList(new Skill[]{javascript, ruby})));
         developers.add(new Developer("Mark", "Johnson", "mjohnson@example.com",
-                Arrays.asList(emberjs, ruby)));
+                Arrays.asList(new Skill[]{emberjs, ruby})));
         developers.add(new Developer("Michael", "Williams", "michael.williams@example.com",
-                Arrays.asList(angularjs, ruby)));
+                Arrays.asList(new Skill[]{angularjs, ruby})));
         developers.add(new Developer("Fred", "Miller", "f.miller@example.com",
-                Arrays.asList(emberjs, angularjs, javascript)));
+                Arrays.asList(new Skill[]{emberjs, angularjs, javascript})));
         developers.add(new Developer("Bob", "Brown", "brown@example.com",
-                Arrays.asList(emberjs, angularjs)));
+                Arrays.asList(new Skill[]{emberjs})));
 
         developerRepository.saveAll(developers);
     }

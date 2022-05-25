@@ -1,7 +1,6 @@
 package com.example.developersdatabase;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -50,14 +49,10 @@ public class DevelopersController {
 
     @RequestMapping(value = "/developer/{id}/skills", method = RequestMethod.POST)
     public String developersAddSkill(@PathVariable Long id, @RequestParam Long skillId, Model model) {
+        Skill skill = skillRepository.findById(skillId).get();
+        Developer developer = repository.findById(id).get();
 
-        Optional<Skill> skillOpt = skillRepository.findById(skillId);
-        Optional<Developer> developerOpt = repository.findById(id);
-
-
-        if (developerOpt.isPresent() && skillOpt.isPresent()) {
-            Developer developer = developerOpt.get();
-            Skill skill = skillOpt.get();
+        if (developer != null) {
             if (!developer.hasSkill(skill)) {
                 developer.getSkills().add(skill);
             }
