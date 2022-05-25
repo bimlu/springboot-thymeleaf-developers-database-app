@@ -1,4 +1,5 @@
 # springboot-thymeleaf-developers-database-app
+## This tutorial is an updated version of https://github.com/pista/developersdatabse
 
 ## How to run
 
